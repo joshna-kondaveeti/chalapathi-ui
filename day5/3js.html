@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	<button onclick="joshna()">Click Me</button>
+	<p id="mango">Do you have girlfriend or not?</p>
+	<script>
+		function joshna() {
+			var a;//declare
+			if(confirm("Tell me your answer?"))
+			{
+				a="Yes, Am waiting for girlfriend";
+			}
+			else
+			{
+				a="No, Am always single";
+			}
+			document.getElementsById('mango').innerHTML=a;
+		}
+	</script>
+</body>
+</html>
