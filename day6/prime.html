@@ -1,0 +1,108 @@
+<div class="container mt-5">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card text-center mb-4">
+                    <div class="card-body">
+                        <h2 class="card-title">Prime Number Checker</h2>
+                        <input type="text" id="numberInput" class="form-control mb-2" placeholder="Enter a number">
+                        <button class="btn btn-primary" onclick="checkPrime()">Check</button>
+                        <p id="resultPrime" class="mt-3"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card text-center mb-4">
+                    <div class="card-body">
+                        <h2 class="card-title">Leap Year Checker</h2>
+                        <input type="text" id="yearInput" class="form-control mb-2" placeholder="Enter a year">
+                        <button class="btn btn-primary" onclick="checkLeapYear()">Check</button>
+                        <p id="resultLeap" class="mt-3"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card text-center mb-4">
+                    <div class="card-body">
+                        <h2 class="card-title">Palindrome Checker</h2>
+                        <input type="text" id="textInput" class="form-control mb-2" placeholder="Enter a string/number">
+                        <button class="btn btn-primary" onclick="checkPalindrome()">Check</button>
+                        <p id="resultPalindrome" class="mt-3"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function isPrime(num) {
+            if (num <= 1) return false;
+            if (num <= 3) return true;
+            if (num % 2 === 0 || num % 3 === 0) return false;
+            for (var i = 5; i * i <= num; i += 6) {
+                if (num % i === 0 || num % (i + 2) === 0) return false;
+            }
+            return true;
+        }
+
+        function checkPrime() {
+            var numberInput = document.getElementById('numberInput').value;
+            var number = Number(numberInput);
+            var resultElement = document.getElementById('resultPrime');
+
+            if (isNaN(number)) {
+                resultElement.innerText = "Please enter a valid number.";
+            } else {
+                if (isPrime(number)) {
+                    resultElement.innerText = "Prime number";
+                } else {
+                    resultElement.innerText = "Not a prime number";
+                }
+            }
+        }
+
+        function isLeapYear(year) {
+            return year % 100 === 0 ? year % 400 === 0 : year % 4 === 0;
+        }
+
+        function checkLeapYear() {
+            var yearInput = document.getElementById('yearInput').value;
+            var year = Number(yearInput);
+            var resultElement = document.getElementById('resultLeap');
+
+            if (isNaN(year)) {
+                resultElement.innerText = "Please enter a valid year.";
+            } else {
+                if (isLeapYear(year)) {
+                    resultElement.innerText = "Leap Year";
+                } else {
+                    resultElement.innerText = "NOT a Leap Year";
+                }
+            }
+        }
+
+        function isPalindrome(str) {
+            var j = str.length - 1;
+            for (var i = 0; i < str.length / 2; i++) {
+                if (str[i] != str[j]) {
+                    return false;
+                }
+                j--;
+            }
+            return true;
+        }
+
+        function checkPalindrome() {
+            var textInput = document.getElementById('textInput').value;
+            var resultElement = document.getElementById('resultPalindrome');
+
+            if (textInput.trim() === "") {
+                resultElement.innerText = "Please enter a valid string.";
+            } else {
+                if (isPalindrome(textInput)) {
+                    resultElement.innerText ="Palindrome";
+                } else {
+                    resultElement.innerText = "Not a palindrome";
+                }
+            }
+        }
+</script>

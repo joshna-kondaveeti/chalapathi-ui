@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+<input type="number" id="age" value =""> <br> <br>
+ 	<button onclick="joshna()">try me</button> <br> <br>
+ 	<p id="demo"> </p>
+</body>
+<script>
+	function joshna() 
+	{
+		var nolemons=document.getElementById('age').value;
+		var nolemons=Number(nolemons);
+		let text= (nolemons<0)? "please enter postive data" : (Number.IsIntiger(nolemons) && (nolemons<21))?(21-nolemons):"test";
+			document.getElementById('demo').innerHTML = text;
+	}
+</script>
+</html>
